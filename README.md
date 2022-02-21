@@ -4,7 +4,7 @@ A plugin made for Powercord. Create Unicode fractions with any numerator and den
 
 ## Preview
 
-[![Preview](https://img.youtube.com/vi/4SkLOOm_a4M/0.jpg)](https://youtu.be/4SkLOOm_a4M "Unicode Fractions")
+[![Preview](https://img.youtube.com/vi/4SkLOOm_a4M/0.jpg)](https://youtu.be/4SkLOOm_a4M "Unicode Fractions Preview")
 <br/>
 This is pretty much what it does. It converts your normal fractions into unicode ones. Yeah, it's pretty cool.
 <br/>
