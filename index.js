@@ -3,7 +3,7 @@ const { inject, uninject } = require("powercord/injector");
 const { messages } = require("powercord/webpack");
 const { replaceFractionsInString } = require("./script");
 
-module.exports = class UnicodeFractions extends Plugin {
+module.exports = class UnicodeFraction extends Plugin {
 	// toggled;
 	startPlugin() {
 		// this.toggled = this.settings.get("toggled", false);
@@ -45,7 +45,7 @@ module.exports = class UnicodeFractions extends Plugin {
 		// });
 
 		inject(
-			"UnicodeFractions",
+			"UnicodeFraction",
 			messages,
 			"sendMessage",
 			(args) => {
@@ -59,6 +59,6 @@ module.exports = class UnicodeFractions extends Plugin {
 	pluginWillUnload() {
 		// powercord.api.commands.unregisterCommand("raw");
 		// powercord.api.commands.unregisterCommand("toggleraw");
-		uninject("UnicodeFractions");
+		uninject("UnicodeFraction");
 	}
 };
