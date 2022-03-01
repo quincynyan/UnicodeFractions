@@ -47,38 +47,38 @@ module.exports = class UnicodeFractions extends Plugin {
 		// 	}
 		// });
 
-		const CTAC = getModule(
-			(m) =>
-				m.default?.type?.render?.displayName ==
-				"ChannelTextAreaContainer",
-			false
-		).default;
+		// const CTAC = getModule(
+		// 	(m) =>
+		// 		m.default?.type?.render?.displayName ==
+		// 		"ChannelTextAreaContainer",
+		// 	false
+		// ).default;
 
-		inject("UnicodeFractions", CTAC.type, "render", (_, res) => {
-			const editor = findInReactTree(
-				res,
-				(x) => x.props?.promptToUpload && x.props.onSubmit
-			);
-			editor.props.onSubmit = ((original) =>
-				function (...args) {
-					args[0] = replaceFractionsInString(args[0]);
-					return original(...args);
-				})(editor.props.onSubmit);
-			return res;
-		});
-		CTAC.type.render.displayName = "ChannelTextAreaContainer";
+		// inject("UnicodeFractions", CTAC.type, "render", (_, res) => {
+		// 	const editor = findInReactTree(
+		// 		res,
+		// 		(x) => x.props?.promptToUpload && x.props.onSubmit
+		// 	);
+		// 	editor.props.onSubmit = ((original) =>
+		// 		function (...args) {
+		// 			args[0] = replaceFractionsInString(args[0]);
+		// 			return original(...args);
+		// 		})(editor.props.onSubmit);
+		// 	return res;
+		// });
+		// CTAC.type.render.displayName = "ChannelTextAreaContainer";
 
-		// inject(
-		// 	"UnicodeFractions",
-		// 	messages,
-		// 	"sendMessage",
-		// 	(args) => {
-		// 		// if (!this.toggled) return args;
-		// 		args[1].content = replaceFractionsInString(args[1].content);
-		// 		return args;
-		// 	},
-		// 	true
-		// );
+		inject(
+			"UnicodeFractions",
+			messages,
+			"sendMessage",
+			(args) => {
+				// if (!this.toggled) return args;
+				args[1].content = replaceFractionsInString(args[1].content);
+				return args;
+			},
+			true
+		);
 	}
 	pluginWillUnload() {
 		// powercord.api.commands.unregisterCommand("raw");
